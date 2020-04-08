@@ -5,6 +5,8 @@ import com.example.demo.utils.printUtil;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,10 +22,9 @@ import java.util.stream.Collectors;
  */
 public class comparableTest {
 
-    private List<student> students = Lists.newArrayList();
 
     /**
-    * @Description 比较器排序测试方法
+    * @Description 复杂对象排序-比较器排序测试方法
     * @Author mahao
     * @Date 17:02-2019/8/16
     * @param
@@ -31,6 +32,8 @@ public class comparableTest {
     **/
     @Test
     public void studentSortByAge(){
+        List<student> students = Lists.newArrayList();
+
         students.add(student.builder().age(10).build());
         students.add(student.builder().age(30).build());
         students.add(student.builder().age(50).build());
@@ -41,18 +44,41 @@ public class comparableTest {
         //排序前
         printUtil.printList(students);
 
-        //排序--通过集合工具类Collections
-        //Collections.sort(students);
-
-        //排序--通过集合工具类Arrays
-        //Arrays.sort();
+        //排序--通过集合工具类Collections(底层是利用二分法实现的排序)
+        Collections.sort(students);
 
         //排序--通过stream
-        students = students.stream().sorted().collect(Collectors.toList());
+        //students = students.stream().sorted().collect(Collectors.toList());
 
         //排序后
         printUtil.printList(students);
 
     }
 
+    /**
+    * @Description 简单对象排序
+    * @Author mahao
+    * @Date 23:08-2020/4/8
+    * @Param
+    * @return
+    **/
+    @Test
+    public void integerSort(){
+        List<Integer> integers = Lists.newArrayList();
+        integers.add(5);
+        integers.add(6);
+        integers.add(1);
+        integers.add(3);
+        integers.add(4);
+        integers.add(9);
+
+        //排序前
+        printUtil.printList(integers);
+
+        //排序--通过集合工具类Arrays
+        Collections.sort(integers);
+
+        //排序后
+        printUtil.printList(integers);
+    }
 }
