@@ -1,14 +1,12 @@
-package com.example.demo;
+package com.example.demo.compare;
 
-import com.example.demo.model.student;
+import com.example.demo.model.Student;
 import com.example.demo.utils.printUtil;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * packageName：com.example.demo
@@ -24,46 +22,46 @@ public class comparableTest {
 
 
     /**
-    * @Description 复杂对象排序-比较器排序测试方法
-    * @Author mahao
-    * @Date 17:02-2019/8/16
-    * @param
-    * @return
-    **/
+     * @param
+     * @return
+     * @Description 复杂对象排序-比较器排序测试方法
+     * @Author mahao
+     * @Date 17:02-2019/8/16
+     **/
     @Test
-    public void studentSortByAge(){
-        List<student> students = Lists.newArrayList();
+    public void studentSortByAge() {
+        List<Student> Students = Lists.newArrayList();
 
-        students.add(student.builder().age(10).build());
-        students.add(student.builder().age(30).build());
-        students.add(student.builder().age(50).build());
-        students.add(student.builder().age(20).build());
-        students.add(student.builder().age(40).build());
-        students.add(student.builder().age(60).build());
+        Students.add(Student.builder().age(10).build());
+        Students.add(Student.builder().age(30).build());
+        Students.add(Student.builder().age(50).build());
+        Students.add(Student.builder().age(20).build());
+        Students.add(Student.builder().age(40).build());
+        Students.add(Student.builder().age(60).build());
 
         //排序前
-        printUtil.printList(students);
+        printUtil.printList(Students);
 
         //排序--通过集合工具类Collections(底层是利用二分法实现的排序)
-        Collections.sort(students);
+        Collections.sort(Students);
 
         //排序--通过stream
-        //students = students.stream().sorted().collect(Collectors.toList());
+        //Students = Students.stream().sorted().collect(Collectors.toList());
 
         //排序后
-        printUtil.printList(students);
+        printUtil.printList(Students);
 
     }
 
     /**
-    * @Description 简单对象排序
-    * @Author mahao
-    * @Date 23:08-2020/4/8
-    * @Param
-    * @return
-    **/
+     * @return
+     * @Description 简单对象排序
+     * @Author mahao
+     * @Date 23:08-2020/4/8
+     * @Param
+     **/
     @Test
-    public void integerSort(){
+    public void integerSort() {
         List<Integer> integers = Lists.newArrayList();
         integers.add(5);
         integers.add(6);

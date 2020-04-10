@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * packageName：com.example.demo.model
- * class：student
+ * class：Student
  * describe：用户测试比较器的学生类对象
  * author：mahao
  * time：16:36-2019/8/16
@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class student implements Comparable<student>{
+public class Student implements Comparable<Student>{
 
     int age;
 
@@ -27,7 +27,7 @@ public class student implements Comparable<student>{
 
     //重写默认比较器---升序
     @Override
-    public int compareTo(student o){
+    public int compareTo(Student o){
         // 入参o:可以理解为排序队列中的前一个对象,即被比较对象
         // this:理解为排序队列的后一个对象,即比较对象
         if(o.getAge() > this.getAge()){
