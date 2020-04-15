@@ -19,24 +19,29 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student implements Comparable<Student>{
+public class Student implements Comparable<Student> {
 
     int age;
 
     int grade;
 
+    private void Student(int age, int grade) {
+        this.age = age;
+        this.grade = grade;
+    }
+
     //重写默认比较器---升序
     @Override
-    public int compareTo(Student o){
+    public int compareTo(Student o) {
         // 入参o:可以理解为排序队列中的前一个对象,即被比较对象
         // this:理解为排序队列的后一个对象,即比较对象
-        if(o.getAge() > this.getAge()){
+        if (o.getAge() > this.getAge()) {
             return -1;
-        }else if(o.getAge() < this.getAge()){
+        } else if (o.getAge() < this.getAge()) {
             //解读:如果前一个对象小于后一个对象,那么符合我们的目标排序规则,则返回1
             //因此我们可以想象一下,前小后大的序列是升序序列,以此我们可以理解降序序列
             return 1;
-        }else {
+        } else {
             return 0;
         }
     }

@@ -21,7 +21,6 @@ public class collectors {
     @Test
     public void toCollection() {
         HashSet<Integer> hashSet = Stream.of(1, 2, 4, 5).collect(Collectors.toCollection(HashSet::new));
-
         System.out.println(hashSet);
     }
 }
