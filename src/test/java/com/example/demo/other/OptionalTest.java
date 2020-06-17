@@ -76,4 +76,17 @@ public class OptionalTest {
         return students;
     }
 
+    @Test
+    public void orElseThrowTest() {
+        Student student = null;
+        //如果容器值存在则返回容器值,否则将根据lambda表达式抛出异常对象
+        try {
+            //Student optionalStudent = Optional.ofNullable(student).orElseThrow(IllegalStateException::new);
+            //Student optionalStudent = Optional.ofNullable(student).orElseThrow(Exception::new);
+            Student optionalStudent = Optional.ofNullable(student).orElseThrow(() -> new Exception("错误"));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
 }
